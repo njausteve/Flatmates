@@ -1,0 +1,28 @@
+<ion-view title="Signup" hide-nav-bar="true" hide-back-button="true" cache-view="false" nav-transition="none" id="page8">
+  <ion-content padding="true" style="background: url(img/jZh4Rav1ReHtmP1OMLzv_M58Xuf6.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+    <div id="signup-markdown5" class="show-list-numbers-and-dots error-box" ng-if="error">
+      <p style="color:#FAF8F8;">{{error}}</p>
+    </div>
+    <form id="signup-form4" class="list center-form">
+      <div class="spacer" style="width: 290px; height: 6px;"></div>
+      <div>
+        <img src="img/hAX6oXmyTTGzJ2Yja5ag_Home-icon.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+      <div class="spacer" style="width: 290px; height: 33px;"></div>
+      <ion-list id="signup-list5">
+        <label class="item item-input top-input" id="signup-input10" name="name">
+          <input type="text" placeholder="Name" ng-model="data.name">
+        </label>
+        <label class="item item-input item-floating-label bottom-input" id="signup-input9" name="Email">
+          <input type="text" placeholder="Email" ng-model="data.email">
+        </label>
+        <label class="item item-input item-floating-label bottom-input" id="signup-input11" name="Password">
+          <input type="password" placeholder="Password" ng-model="data.password">
+        </label>
+      </ion-list>
+      <div class="spacer" style="width: 300px; height: 25px;"></div>
+      <a  id="signup-button6" class="button button-energized  button-block button-energized" ng-click="signup()">Sign up</a>
+      <a ui-sref="login" id="signup-button7" class="button button-light  button-block button-clear">Already have an account ?</a>
+    </form>
+  </ion-content>
+</ion-view>
