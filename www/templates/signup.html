@@ -1,9 +1,9 @@
-<ion-view title="Signup" hide-nav-bar="true" hide-back-button="true" cache-view="false" nav-transition="none" id="page8">
+<ion-view title="Signup" hide-nav-bar="true" hide-back-button="true" cache-view="false" nav-transition="none" id="page8" class="signup"> 
   <ion-content padding="true" style="background: url(img/jZh4Rav1ReHtmP1OMLzv_M58Xuf6.png) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
     <div id="signup-markdown5" class="show-list-numbers-and-dots error-box" ng-if="error">
       <p style="color:#FAF8F8;">{{error}}</p>
     </div>
-    <form id="signup-form4" class="list center-form">
+    <form id="signup-form4" class="list center-form" ng-submit="signup()">
       <div class="spacer" style="width: 290px; height: 6px;"></div>
       <div>
         <img src="img/hAX6oXmyTTGzJ2Yja5ag_Home-icon.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
@@ -21,7 +21,7 @@
         </label>
       </ion-list>
       <div class="spacer" style="width: 300px; height: 25px;"></div>
-      <a  id="signup-button6" class="button button-energized  button-block button-energized" ng-click="signup()">Sign up</a>
+      <button  type="submit" id="signup-button6" class="button button-energized  button-block button-energized" ">Sign up</button>
       <a ui-sref="login" id="signup-button7" class="button button-light  button-block button-clear">Already have an account ?</a>
     </form>
   </ion-content>
