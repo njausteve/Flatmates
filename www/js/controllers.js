@@ -1,4 +1,4 @@
-angular.module('app.controllers', ['ionic.cloud', 'ionic.cloud.init'])
+angular.module('app.controllers', ['ionic.cloud'])
 
 .controller('cameraTabDefaultPageCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include an y angular dependencies as parameters for this function
@@ -61,45 +61,27 @@ function ($scope, $stateParams, $ionicSideMenuDelegate, $ionicUser, $ionicAuth, 
         $scope.signup = function(){
 
 
-
-
-
-
-            var details = {
-'email': '$scope.data.email',
-'password': $scope.data.password
-}
-$ionicAuth.signup(details).then(
-function(user){
-user.migrate();
-user.save(); // save the user to persist the migration changes
-console.log('success');
-},
-function(user){
-console.log(user + 'not added to ionic')
-}
-); 
-        // $scope.error = '';
-        // console.log($scope.data);
+        $scope.error = '';
+        console.log($scope.data);
         
-        // $ionicAuth.signup($scope.data).then(function(worked) {
-        //     // `$ionicUser` is now registered
-        //     console.log(worked);
-        //     $ionicAuth.login('basic', $scope.data).then(function(){
-        //       $state.go('menu.home');
-        //     });
-        // }, function(err) {
+        $ionicAuth.signup($scope.data).then(function() {
+            // `$ionicUser` is now registered
+            console.log("inside signup");
+            $ionicAuth.login('basic', $scope.data).then(function(){
+              $state.go('tabsController.cameraTabDefaultPage');
+            });
+        }, function(err) {
             
-        //     var error_lookup = {
-        //         'required_email': 'Missing email field',
-        //         'required_password': 'Missing password field',
-        //         'conflict_email': 'A user has already signed up with that email',
-        //         'conflict_username': 'A user has already signed up with that username',
-        //         'invalid_email': 'The email did not pass validation'
-        //     }    
+            var error_lookup = {
+                'required_email': 'Missing email field',
+                'required_password': 'Missing password field',
+                'conflict_email': 'A user has already signed up with that email',
+                'conflict_username': 'A user has already signed up with that username',
+                'invalid_email': 'The email did not pass validation'
+            }    
         
-        //     $scope.error = error_lookup[err.details[0]];
-        // });
+            $scope.error = error_lookup[err.details[0]];
+        });
     }
 
 }])
